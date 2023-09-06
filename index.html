@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <nav class="navbar container-fluid">
+        <button class="nav_btn_back"> <i class="fa-solid fa-angle-left"></i></button>
+        <p class="m-0">My associated task</p>
+        <span>
+            <i class="fa-solid fa-arrow-down-wide-short"></i>
+            <i class="fa-solid fa-chart-pie"></i>
+        </span>
+    </nav>
+    <div class="nav2">
+
+        <span class="dropdown">
+            <p class="m-0">Rows </p>
+                <select id="myDropdown" class="myDropdown">
+                <option value="option1">1</option>
+                <option value="option2">2</option>
+                <option value="option3">3</option>
+                <option value="option4">4</option>
+                <option value="option5">5</option>
+                </select>
+            </label>
+        </span>
+        <div class="main">
+            <button class="btn_back" id="btn_back"> <i class="fa-solid fa-angle-left"></i></button>
+            <p class="from m-0" id="from">1</p>
+            <p class="m-0">-</p>
+            <p class="to m-0" id="to">5</p>
+            <p class="m-0 m-lg-1">of 50</p>
+            <button class="btn_forword" id="btn_forword"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+<script>
+
+    const from = document.getElementById("from");
+    const to = document.getElementById("to");
+    const btn_forword = document.getElementById("btn_forword");
+    const btn_back = document.getElementById("btn_back");
+
+    function forword() {
+        let from_value = parseInt(from.innerHTML);
+        let to_value = parseInt(to.innerHTML);
+
+        if (to_value >= 50) {
+            btn_forword.disabled = true;
+        }
+        else{
+            from_value += 5;
+            to_value += 5;
+            from.innerHTML = from_value;
+            to.innerHTML = to_value;
+        }
+        if (from_value > 1) {
+            btn_back.disabled = false;
+        }
+    }
+    function back() {
+        let from_value = parseInt(from.innerHTML);
+        let to_value = parseInt(to.innerHTML);
+
+        if (from_value <= 1) {
+            btn_back.disabled = true;
+        }
+        else{
+            from_value -= 5;
+            to_value -= 5;
+            from.innerHTML = from_value;
+            to.innerHTML = to_value;
+        }
+        if (to_value < 50) {
+            btn_forword.disabled = false;
+        }
+
+    }
+    btn_forword.onclick = forword;
+    btn_back.onclick = back;
+</script>
+
+</html>

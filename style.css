@@ -1,0 +1,56 @@
+
+.navbar{
+    background: #B5020B;
+    height: 3rem;
+    color: white;
+
+}
+.nav_btn_back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color:rgba(221, 221, 221, 0.5);
+    border: transparent;
+    color: white;
+}
+.nav2{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+.main{
+    display: flex;
+    align-items: center;
+    width: 8rem;
+    justify-content: space-around;
+}
+.main p{
+    font-size: small;
+}
+.btn_back,.btn_forword{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color:rgba(221, 221, 221, 0.5);
+    border: transparent;
+}
+.dropdown{
+    display: flex;
+}
+   
+.myDropdown{
+    text-align: center;
+    width: 3rem;
+    border: transparent;
+    background:#ddd;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+
+
+}
