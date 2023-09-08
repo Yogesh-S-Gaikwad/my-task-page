@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Style for table header */
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<label for="rowCountDropdown">Select the number of rows:</label>
+<select id="rowCountDropdown">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+
+<table>
+    <thead>
+        <tr>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <!-- Rows will be added here -->
+    </tbody>
+</table>
+
+
+<script>
+    // Add an event listener to the dropdown
+    document.getElementById('rowCountDropdown').addEventListener('change', function() {
+        // Get the selected value from the dropdown
+        var rowCount = parseInt(this.value);
+
+        // Get the table body element
+        var tableBody = document.getElementById('tableBody');
+
+        // Clear the existing rows from the table body
+        tableBody.innerHTML = '';
+
+        // Create new rows based on the selected count
+        for (var i = 1; i <= rowCount; i++) {
+            // Create a new table row
+            var newRow = document.createElement('tr');
+
+            // Create a table cell (td) for the option
+            var optionCell = document.createElement('td');
+
+            // Create a select element
+            var select = document.createElement('select');
+
+            // Create option elements and add them to the select element
+            for (var j = 1; j <= 5; j++) {
+                var option = document.createElement('option');
+                option.text = 'Option ' + j;
+                select.appendChild(option);
+            }
+
+            // Add the select element to the option cell
+            optionCell.appendChild(select);
+
+            // Add the option cell to the new row
+            newRow.appendChild(optionCell);
+
+            // Add the new row to the table body
+            tableBody.appendChild(newRow);
+        }
+    });
+</script>
+
+</body>
+</html>
